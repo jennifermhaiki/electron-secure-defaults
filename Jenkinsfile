@@ -17,13 +17,13 @@ pipeline {
             
             
         }
-        stage('Build') {
+        stage('Build'){
             steps {
                 sh "echo build package"
                 sh 'npm install'
             }
         }
-        stage ('Email Notification') {
+        stage('Email Notification'){
             steps{
                 emailext (
                     subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
@@ -35,7 +35,7 @@ pipeline {
             }
             
         }
-        stage('Vulnerabilities') {
+        stage('Vulnerabilities'){
             steps {
                 sh "echo The following command tests for vulnerabilities"
         }

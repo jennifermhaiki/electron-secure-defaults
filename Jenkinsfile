@@ -13,7 +13,6 @@ pipeline {
             steps{
                 sh "echo electron-secure-defaults application"
             }
-        }
             
             
         }
@@ -41,4 +40,5 @@ pipeline {
         }
                
     }
+}
 }

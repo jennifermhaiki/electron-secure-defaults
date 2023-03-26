@@ -37,7 +37,7 @@ pipeline {
         stage ('OWASP Dependency-Check Vulnerabilities') {
             steps {
 
-                dependencyCheckPublisher pattern: '--format HTML --format XML'
+                dependencyCheckPublisher pattern: '--format HTML --format XML', odcInstallation:'OWASP-DC'
             }
         }     
     }

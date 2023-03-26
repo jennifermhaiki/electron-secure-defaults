@@ -34,11 +34,6 @@ pipeline {
             }
             
         }
-        stage('Vulnerabilities'){
-            steps {
-                sh "echo The following command tests for vulnerabilities"
-            }
-              
         stage ('OWASP Dependency-Check Vulnerabilities') {
             steps {
                 dependencyCheck additionalArguments: ''' 
@@ -52,4 +47,4 @@ pipeline {
         }     
     }
 }
-}
+

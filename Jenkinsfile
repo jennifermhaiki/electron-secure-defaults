@@ -36,7 +36,7 @@ pipeline {
         }
         stage ('OWASP Dependency-Check Vulnerabilities') {
             steps {
-                sh(‘mkdir -p build/owasp’)
+                sh "mkdir -p build/owasp"
                 dependencycheck additionalArguments: '--project plastinforme --scan ./ --data /home/jenkins/security/owasp-nvd/ --out build/owasp/dependency-check-report.xml --format XML', odcInstallation: 'OWASP-DC'
                 dependencyCheckPublisher pattern: 'build/owasp/dependency-check-report.xml'
             }

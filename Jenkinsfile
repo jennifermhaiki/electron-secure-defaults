@@ -50,13 +50,9 @@ pipeline {
                 }
         
         stage('e2e Tests') {
-            steps{
-                stage('Test 1') {
-                    steps {
-                        sh 'npm run cypress:ci'
+            steps {
+                sh 'npm run cypress:ci'
                   }
                }
-         }
-       }
     }
 }

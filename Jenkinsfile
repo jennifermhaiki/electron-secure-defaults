@@ -1,13 +1,12 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:latest'
-            args '-p 3000:3000'
+    agent any
+    tools {nodejs "NodeJS"}
+    environment {
+        CHROME_BIN = '/bin/google-chrome'
+        
         }
     }
-    environment {
-        CI = 'true'
-    }
+
     stages {
         stage('Initiation'){
             steps{
@@ -41,25 +40,20 @@ pipeline {
             }
             
         }
-        
-        stages {
-            tools {nodejs "NodeJS"}
-            environment {
-                CHROME_BIN = '/bin/google-chrome'
-            }
-      
-        }
 
-            stage('Dependencies') {
-                steps {
-                    sh 'npm i'
-           }
-       }
-       stage('e2e Tests') {
-         Parallel{
-             stage('Test 1') {
-                  steps {
-                sh 'npm run cypress:ci'
+         stage('Dependencies') {
+             steps {
+                 sh 'npm i'
+                
+                     
+                    }
+                }
+        
+        stage('e2e Tests') {
+            steps{
+                stage('Test 1') {
+                    steps {
+                        sh 'npm run cypress:ci'
                   }
                }
          }

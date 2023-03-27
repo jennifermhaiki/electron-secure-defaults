@@ -4,6 +4,7 @@ pipeline {
     
     environment {
         CHROME_BIN = '/bin/google-chrome'
+        SCANNER_HOME = tool 'sonarqube-scanner'
         
         }
 
@@ -44,8 +45,13 @@ pipeline {
         
        stage ('Sonarqube scanning') {
             steps {
-                sh "npm run sonar"
-            }
-        } 
+                withSonarQubeEnv('sonar') {
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
+                    -Dsonar.java.binaries=build/classes/java/ \
+                    -Dsonar.projectKey=$PROJECT_NAME \
+                    -Dsonar.sources=.'''
+    }
+  }
+} 
     }
 }

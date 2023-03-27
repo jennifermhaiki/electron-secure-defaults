@@ -24,9 +24,9 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'sudo ./jenkins/scripts/deliver.sh'
+                sh 'chmod +x ./jenkins/scripts/deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh 'sudo ./jenkins/scripts/kill.sh'
+                sh ' chmod +x ./jenkins/scripts/kill.sh'
             }
         }        
         stage('Email Notification'){

@@ -49,7 +49,7 @@ pipeline {
         stage('Tests') {
             steps {
                 sh 'npm ci'
-                sh "npm run test" 
+                sh "npm run test:ci" 
             }
         }
     }

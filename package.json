@@ -61,8 +61,6 @@
     ]
   },
   {
- .....
- ....
  "sonar": "node sonar-project.js"
 }
 }

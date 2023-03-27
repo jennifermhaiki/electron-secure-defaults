@@ -49,9 +49,9 @@ pipeline {
                     }
                 }
         
-        stage('e2e Tests') {
+        stage('Tests') {
             steps {
-                sh 'npm run cypress'
+                sh 'npm run test'
                   }
                }
     }

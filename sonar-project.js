@@ -1,4 +1,3 @@
-sudo nano sonar-project.js
 const sonarqubeScanner = require('sonarqube-scanner');
 
 sonarqubeScanner({

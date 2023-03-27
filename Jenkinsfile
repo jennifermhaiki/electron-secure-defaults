@@ -46,15 +46,9 @@ pipeline {
             
         }
         
-       stage ('OWASP Dependency-Check Vulnerabilities') {
+       stage ('Sonarqube scanning') {
             steps {
-                dependencyCheck additionalArguments: ''' 
-                    -o "./" 
-                    -s "./"
-                    -f "ALL" 
-                    --prettyPrint''', odcInstallation: 'OWASP-DC'
-
-                dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+                sh "npm run sonar"
             }
         } 
     }

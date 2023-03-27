@@ -1,9 +1,15 @@
-const sonarqubeScanner = require('sonarqube-scanner');
+const scanner = require('sonarqube-scanner');
 
-sonarqubeScanner({
-  serverUrl: 'http://sonarqube.fosstechnix.info/',
-       options : {
-       'sonar.sources': '.',
-       'sonar.inclusions' : 'src/**' 
-       },
-}, () => {});
+scanner(
+  {
+    serverUrl : 'http://localhost:9000/account/security',
+    token : "sqa_3fb45a4f900680f2145e60eead5c182f6211ba61",
+    options: {
+      'sonar.projectName': 'My App',
+      'sonar.projectDescription': 'Description for "My App" project...',
+      'sonar.sources': 'src',
+      'sonar.tests': 'test'
+    }
+  },
+  () => process.exit()
+)

@@ -1,6 +1,11 @@
 pipeline {
     agent any
     tools {nodejs "NodeJS"}
+    
+    docker {
+      image 'cypress/base:latest'
+    }
+    
     environment {
         CHROME_BIN = '/bin/google-chrome'
         
@@ -40,21 +45,12 @@ pipeline {
             }
             
         }
-
-         stage('Dependencies') {
-             steps {
-                 sh 'npm i'
-                
-                     
-                    }
-                }
         
         stage('Tests') {
             steps {
-                wrap([$class: 'Xvfb']) {
-                    sh 'npm run test'
-                  }
-               }
+                sh 'npm ci'
+                sh "npm run test:ci:record" 
+            }
         }
     }
 }

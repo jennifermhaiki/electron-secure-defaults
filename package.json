@@ -9,8 +9,8 @@
     "lint": "eslint -c .eslintrc --ext .ts ./src",
     "start": "npm run build && electron ./dist/main.js",
     "package": "yarn electron-builder --publish never",
-    "electronegativity": "electronegativity -i ./src"
-    "test": "cypress run", 
+    "electronegativity": "electronegativity -i ./src",
+    "test": "cypress run" 
   },
   "repository": "https://github.com/1password/electron-secure-defaults",
   "keywords": [

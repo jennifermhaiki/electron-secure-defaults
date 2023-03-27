@@ -51,7 +51,8 @@ pipeline {
         
         stage('Tests') {
             steps {
-                sh 'npm run test'
+                wrap([$class: 'Xvfb']) {
+                    sh 'npm run test'
                   }
                }
     }

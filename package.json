@@ -59,5 +59,10 @@
     "extraResources": [
       "index.html"
     ]
-  }
+  },
+  {
+ .....
+ ....
+ "sonar": "node sonar-project.js"
+}
 }

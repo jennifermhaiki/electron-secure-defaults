@@ -51,7 +51,7 @@ pipeline {
         
         stage('Tests') {
             steps {
-                sh 'npm run test'
+                sh 'npx cypress run test'
                   }
                }
     }

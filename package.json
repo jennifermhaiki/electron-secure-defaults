@@ -11,7 +11,7 @@
     "package": "yarn electron-builder --publish never",
     "electronegativity": "electronegativity -i ./src",
     "test": "cypress run",
-    "test:ci": "run-p --race start e2e",
+    "test:ci": "run-p --race start e2e"
   },
   "repository": "https://github.com/1password/electron-secure-defaults",
   "keywords": [

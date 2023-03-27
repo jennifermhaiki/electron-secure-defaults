@@ -1,10 +1,10 @@
 pipeline {
-    agent any
-    tools {nodejs "NodeJS"}
-    
-    docker {
+    agent{
+        docker {
       image 'cypress/base:latest'
+        }
     }
+    tools {nodejs "NodeJS"}
     
     environment {
         CHROME_BIN = '/bin/google-chrome'

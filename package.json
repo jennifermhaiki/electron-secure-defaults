@@ -10,7 +10,7 @@
     "start": "npm run build && electron ./dist/main.js",
     "package": "yarn electron-builder --publish never",
     "electronegativity": "electronegativity -i ./src",
-    "test": "cypress run" 
+    "test": "cypress open" 
   },
   "repository": "https://github.com/1password/electron-secure-defaults",
   "keywords": [
